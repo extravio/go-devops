@@ -4,4 +4,5 @@ use (
 	./hello
 	./hello-devops
 	./http-get
+	./io-interface
 )
