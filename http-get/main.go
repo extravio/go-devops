@@ -1,15 +1,22 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 )
 
-// import "rsc.io/quote"
+// {"page":"words","input":"word1","words":["word1"]}
+type Words struct {
+	Page  string   `json:"page"`
+	Input string   `json:"input"`
+	Words []string `json:"words"`
+}
 
 func main() {
 	// var args []string
@@ -38,6 +45,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("HTTP Status Code: %d\nBody : %s\n", response.StatusCode, body)
+	if response.StatusCode != 200 {
+		fmt.Printf("Invalid output (HTTP Status Code: %d): %s\n", response.StatusCode, body)
+		os.Exit(1)
+	}
+
+	var words Words
+	err = json.Unmarshal(body, &words)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("JSON parsed\nPage: %s\nWords: %s\n", words.Page, strings.Join(words.Words, ", "))
 
 }
