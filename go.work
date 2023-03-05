@@ -4,6 +4,7 @@ use (
 	./hello
 	./hello-devops
 	./http-get
+	./http-get-error-handling
 	./http-get-func
 	./http-get-v2
 	./io-interface
