@@ -5,6 +5,7 @@ use (
 	./hello-devops
 	./http-get
 	./http-get-error-handling
+	./http-get-flags
 	./http-get-func
 	./http-get-v2
 	./io-interface
