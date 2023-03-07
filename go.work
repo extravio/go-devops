@@ -8,5 +8,6 @@ use (
 	./http-get-flags
 	./http-get-func
 	./http-get-v2
+	./http-jwt
 	./io-interface
 )
