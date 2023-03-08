@@ -10,4 +10,5 @@ use (
 	./http-get-v2
 	./http-jwt
 	./io-interface
+	./package
 )
